@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food App</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <nav id="nav"></nav>
+  <body>
+      <div id="form">
+          <input type="text" placeholder="Enter keywords to search" id="input">
+          <button type="button" id="btn">Search Recipe</button>
+        </div>
+        <div id="result"></div>
+  </body>
+  <script  type="module">
+  import {navbar,fetchIt} from "./navBar.js";
+  var nav = document.getElementById("nav");
+  nav.innerHTML = navbar();
+  const btn = document.getElementById("btn");
+  btn.addEventListener("click",()=>{
+      const input = document.getElementById("input").value;
+      var data = fetchIt(`https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`,`result`)
+    })
+  </script>
+</html>
