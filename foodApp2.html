@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Receipe of the Day</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <nav id="nav">
+    
+  </nav>
+  <body>
+    <div style="text-align: center">
+      <h2>Receipe Of the Day </h2>
+    </div>
+    <div id="result">
+    </div>
+  </body>
+  <script  type="module">
+
+    import {navbar,fetchIt} from "./navBar.js";
+    var nav = document.getElementById("nav");
+    nav.innerHTML = navbar();       
+    var data = fetchIt(`https://www.themealdb.com/api/json/v1/1/random.php`,`result`)
+  </script>
+</html>
